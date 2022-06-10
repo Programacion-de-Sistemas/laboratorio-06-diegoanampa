@@ -23,3 +23,54 @@ int blackWhite[8][8] = {
     {1,1,1,1,1,1,1,1}
 };
 int moves[8][8];
+
+int getValidMoves(int x, int y){
+    int piece = board[y][x];
+    int color = blackWhite[y][x];
+    int canMove = 1;
+    moves[y][x] = 2;
+    if(x > 7 || x < 0 || y > 7 || y < 0)
+        return 1;
+    if(piece == 0){
+        return 1;  
+    }
+    void towerMoves(){
+         for(int dir = -1; dir < 2; dir+=2){
+            int count = 1;
+            while(1){
+                if(x+(count*dir) <= 7 && x+(count*dir) >= 0){
+                    if(board[y][x+(count*dir)] != 0){
+                        if(blackWhite[y][x+(count*dir)] != color){
+                            moves[y][x+(count*dir)] = 3;
+                            canMove = 0;
+                        }
+                        break;
+                    }else{
+                        moves[y][x+(count*dir)] = 1;
+                        canMove = 0;
+                    }
+                }else{
+                    break;
+                }
+                count++;
+            }
+            count = 1;
+            while(1){
+                if(y+(count*dir) <= 7 && y+(count*dir) >= 0){
+                    if(board[y+(count*dir)][x] != 0){
+                        if(blackWhite[y+(count*dir)][x] != color){
+                            moves[y+(count*dir)][x] = 3;
+                            canMove = 0;
+                        }
+                        break;
+                    }else{
+                        moves[y+(count*dir)][x] = 1;
+                        canMove = 0;
+                    }
+                }else{
+                    break;
+                }
+                count++;
+            }
+        }
+    }
