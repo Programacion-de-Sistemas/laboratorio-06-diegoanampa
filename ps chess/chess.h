@@ -41,7 +41,7 @@ int getValidMoves(int x, int y){
                 if(x+(count*dir) <= 7 && x+(count*dir) >= 0){
                     if(board[y][x+(count*dir)] != 0){
                         if(blackWhite[y][x+(count*dir)] != color){
-                            moves[y][x+(count*dir)] = 3;
+                            moves[y][x+(count*dir)] = 3; 
                             canMove = 0;
                         }
                         break;
@@ -55,22 +55,5 @@ int getValidMoves(int x, int y){
                 count++;
             }
             count = 1;
-            while(1){
-                if(y+(count*dir) <= 7 && y+(count*dir) >= 0){
-                    if(board[y+(count*dir)][x] != 0){
-                        if(blackWhite[y+(count*dir)][x] != color){
-                            moves[y+(count*dir)][x] = 3;
-                            canMove = 0;
-                        }
-                        break;
-                    }else{
-                        moves[y+(count*dir)][x] = 1;
-                        canMove = 0;
-                    }
-                }else{
-                    break;
-                }
-                count++;
-            }
         }
     }
