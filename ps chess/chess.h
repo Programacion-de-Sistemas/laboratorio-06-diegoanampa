@@ -25,8 +25,6 @@ int blackWhite[8][8] = {
 int moves[8][8];
 
 int getValidMoves(int x, int y){
-    int piece = board[y][x];
-    int color = blackWhite[y][x];
     int canMove = 1;
     moves[y][x] = 2;
     if(x > 7 || x < 0 || y > 7 || y < 0)
