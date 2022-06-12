@@ -54,4 +54,40 @@ int getValidMoves(int x, int y){
             }
             count = 1;
         }
+     void chessCalculateFields(chess *c)
+{
+	board *currentBoard = chessGetBoard(c);
+
+	c->repetitions = 0;
+	for (boardListNode *n = c->boardHistory->head; n; n = n->next)
+	{
+		if (boardEqContext(currentBoard, n->board))
+			c->repetitions++;
+	}
+
+if (c->currentLegalMoves)
+		moveListFree(c->currentLegalMoves);
+
+	c->currentLegalMoves = boardGenerateMoves(currentBoard);
+
+	if (c->currentLegalMoves->size == 0)
+	{
+		if (boardIsInCheck(currentBoard))
+			c->terminal = tsCheckmate;
+		else
+			c->terminal = tsDrawStalemate;
+	}
+	else
+	{
+		if (c->repetitions >= 5)
+			c->terminal = tsDrawFivefold;
+		else if (currentBoard->halfMoveClock >= 150)
+			c->terminal = tsDraw75MoveRule;
+		else if (boardIsInsufficientMaterial(currentBoard))
+			c->terminal = tsDrawInsufficient;
+		else if ((c->terminal != tsDrawClaimed50MoveRule) && (c->terminal != tsDrawClaimedThreefold))
+			c->terminal = tsOngoing;
+
+
     }
+} 
