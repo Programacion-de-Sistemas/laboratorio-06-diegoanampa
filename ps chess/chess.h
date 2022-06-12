@@ -65,7 +65,7 @@ int getValidMoves(int x, int y){
 			c->repetitions++;
 	}
 
-if (c->currentLegalMoves)
+if (c->currentLegalMoves) 
 		moveListFree(c->currentLegalMoves);
 
 	c->currentLegalMoves = boardGenerateMoves(currentBoard);
