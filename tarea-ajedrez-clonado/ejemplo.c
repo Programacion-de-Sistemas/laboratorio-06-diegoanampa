@@ -2,6 +2,7 @@
 #include "figures.h"
 
 void display(){
-  char** blackKnight = repeatH(blackSquare,4);
-  interpreter(blackKnight);
+  char** blackKnight = join(whiteSquare,blackSquare);
+  char** blackKnight2 = repeatH(blackKnight,4);
+  interpreter(blackKnight2);
 }
