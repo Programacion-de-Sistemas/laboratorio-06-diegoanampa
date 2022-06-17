@@ -9,7 +9,7 @@ void display(){
   char** unionF1F2 = up(repetirUBW,repetirUWB);
   char** repetirUF1F2 = repeatV(unionF1F2,2);
   
-  char** var1 = join(bishop,king);
+  char** var1 = join(greyBGbishop,king);
 	  
   interpreter(var1);
   
