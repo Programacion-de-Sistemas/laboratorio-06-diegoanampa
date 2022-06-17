@@ -21,16 +21,19 @@ void display(){
   char** union7 = join(union6,rook);
   
   //fila de peones
-  char** union8 = join(pawn,greyBGpawn);
-  char** peonesBlancos = repeatH(union8,4);
+  char** peonesBlancos = repeatH(pawn,8);
   
+  //figuras relleno blanco
   char** union9 = up(union7,peonesBlancos);
   char** union10 = superImpose(union9,unionMitad);
+  
   char** union11 = up(union10,unionMitad);
+  
   
   char** union12 = up(peonesBlancos,union7);
   char** union13 = superImpose(union12,unionMitad);
   char** union14 = flipV(rotateL(rotateL(union13)));
+  
   char** union15 = flipH(union14);
   
   char** union16 = up(union11,union15);
