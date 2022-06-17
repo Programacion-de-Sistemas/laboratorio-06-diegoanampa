@@ -2,6 +2,8 @@
 #include "figures.h"
 
 void display(){
+  
+  //fondo gris y blanco
   char** unionGW = join(blackSquare,whiteSquare);
   char** repUnionGW = repeatH(unionGW,4);
   char** unionWG = join(whiteSquare,blackSquare);
@@ -9,22 +11,30 @@ void display(){
   char** unionMidFilas= up(repUnionGW,repUnionWG);
   char** unionMitad = repeatV(unionMidFilas,2);
   
-  char** union1 = join(greyBGrook,knight);
-  char** union2 = join(union1,greyBGbishop);
+  //primera fila
+  char** union1 = join(rook,knight);
+  char** union2 = join(union1,bishop);
   char** union3 = join(union2,queen);
-  char** union4 = join(union3,greyBGking);
+  char** union4 = join(union3,king);
   char** union5 = join(union4,bishop);
-  char** union6 = join(union5,greyBGknight);
+  char** union6 = join(union5,knight);
   char** union7 = join(union6,rook);
   
+  //fila de peones
   char** union8 = join(pawn,greyBGpawn);
   char** peonesBlancos = repeatH(union8,4);
+  
   char** union9 = up(union7,peonesBlancos);
-  
   char** union10 = superImpose(union9,unionMitad);
-  
   char** union11 = up(union10,unionMitad);
-	  
-  interpreter(union11);
+  
+  char** union12 = up(peonesBlancos,union7);
+  char** union13 = superImpose(union12,unionMitad);
+  char** union14 = flipV(rotateL(rotateL(union13)));
+  char** union15 = flipH(union14);
+  
+  char** union16 = up(union11,union15);
+  
+  interpreter(union16);
   
 }
