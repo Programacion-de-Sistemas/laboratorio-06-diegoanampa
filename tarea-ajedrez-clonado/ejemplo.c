@@ -21,10 +21,10 @@ void display(){
   char** peonesBlancos = repeatH(union8,4);
   char** union9 = up(union7,peonesBlancos);
   
-  char** union10 = superImpose(union7,unionMitad);
+  char** union10 = superImpose(union9,unionMitad);
   
   char** union11 = up(union10,unionMitad);
 	  
-  interpreter(union10);
+  interpreter(union11);
   
 }
