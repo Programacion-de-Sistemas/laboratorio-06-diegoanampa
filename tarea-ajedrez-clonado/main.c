@@ -19,7 +19,7 @@ void setColor(char c){
     case '.': glColor3f(1.0f, 1.0f, 1.0f); break; // white
     case '@': glColor3f(0.0f, 0.0f, 0.0f); break; // black
     case '#': glColor3f(0.2f, 0.2f, 0.2f); break; // dark gray
-    default: glColor3f(1.0f, 1.0f, 1.0f); break; // white
+    default: glColor3f(0.5f, 0.5f, 0.5f); break; // white
   }
 }
 

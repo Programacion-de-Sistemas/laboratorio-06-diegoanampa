@@ -2,12 +2,12 @@
 #include "figures.h"
 
 void display(){
-  char** unionBW = join(blackSquare,whiteSquare);
-  char** repetirUBW = repeatH(unionBW,4);
-  char** unionWB = join(whiteSquare,blackSquare);
-  char** repetirUWB = repeatH(unionWB,4);
-  char** unionF1F2 = up(repetirUBW,repetirUWB);
-  char** repetirUF1F2 = repeatV(unionF1F2,2);
+  char** unionGW = join(blackSquare,whiteSquare);
+  char** repUnionGW = repeatH(unionGW,4);
+  char** unionWG = join(whiteSquare,blackSquare);
+  char** repUnionWG = repeatH(unionWG,4);
+  char** unionMidFilas= up(repUnionGW,repUnionWG);
+  char** unionMitad = repeatV(unionMidFilas,2);
   
   char** union1 = join(greyBGrook,knight);
   char** union2 = join(union1,greyBGbishop);
@@ -21,7 +21,9 @@ void display(){
   char** peonesBlancos = repeatH(union8,4);
   char** union9 = up(union7,peonesBlancos);
   
-  char** union10 = up(union9,repetirUF1F2);
+  char** union10 = superImpose(union7,unionMitad);
+  
+  char** union11 = up(union10,unionMitad);
 	  
   interpreter(union10);
   
