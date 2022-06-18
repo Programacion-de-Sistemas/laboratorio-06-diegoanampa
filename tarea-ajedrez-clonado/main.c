@@ -59,12 +59,13 @@ int main(int argc, char **argv) {
   glClearColor(0.5, 0.35, 0.05, 0.0);         // black background 
   glMatrixMode(GL_PROJECTION);              // setup viewing projection 
   glLoadIdentity();                           // start with identity matrix 
-  glOrtho(0.0, 200.0, 200.0, 0.0, -1.0, 1.0);   // setup a 100x100x2 viewing world
+  glOrtho(0.0, 146.0, 146.0, 0.0, -1.0, 1.0);   // setup a 100x100x2 viewing world
 
   glutDisplayFunc(display); 
   glutMainLoop();
 
   return 0; 
+  
 }
 
 
